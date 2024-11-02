@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoruba Flashcards</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Flashcards section styling */
+#flashcards-section {
+    padding: 20px;
+    text-align: center;
+}
+
+#flashcards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Flashcard styling */
+.flashcard {
+    perspective: 1000px;
+    width: 150px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+/* Flashcard faces */
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard-front img {
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.flashcard-back {
+    background-color: #f0f0f0;
+    transform: rotateY(180deg);
+}
+
+.flashcard p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+    <h1>Everyday Yoruba Flashcards</h1>
+</header>
+
+<nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="flashcards.html">Flashcards</a></li>
+      <li><a href="quizzes.html">Quizzes</a></li>
+      <!--<li><a href="#categories">Categories</a></li>-->
+     <!-- Dropdown for Categories -->
+     <li><div class="dropdown">
+      <a href="#" class="dropbtn">Categories</a>
+      <div class="dropdown-content">
+          <a href="greetings.html">Greetings</a>
+          <a href="numbers.html">Numbers</a>
+          <a href="colors.html">Colors</a>
+          <a href="basic_phrases.html">Basic Phrases</a>
+          <!-- Add more categories as needed -->
+      </div>
+  </div></li>
+      <li><a href="dictionary.html" class="icon"><i class="fas fa-book"></i> Dictionary</a></li>
+    </ul>
+  </nav>
+
+<section id="flashcards-section">
+    <h2>Learn Everyday Yoruba Words</h2>
+    <div id="flashcards-container"></div>
+</section>
+
+<script src="script.js"></script>
+<script>
+    const flashcardsData = [
+        { word: "Hello", translation: "Ẹ kaaro", image: "hello.jpg" },
+        { word: "Goodbye", translation: "O dabo", image: "goodbye.jpg" },
+        { word: "Please", translation: "Ẹ jọwọ", image: "please.jpg" },
+        { word: "Thank you", translation: "Ẹ se" },
+        { word: "Water", translation: "Omi", image: "water.jpg" },
+        { word: "Food", translation: "Ounjẹ", image: "food.jpg" },
+        { word: "Friend", translation: "Ọrẹ" },
+        { word: "House", translation: "Ile", image: "house.jpg" },
+        { word: "Market", translation: "Oja" },
+        { word: "School", translation: "Ile-iwe", image: "school.jpg" },
+        { word: "Family", translation: "Ebi", image: "family.jpg" },
+        { word: "Car", translation: "Ọkọ ayọkẹlẹ" },
+        { word: "Shop", translation: "Iṣòwò" },
+
+        // Add more flashcards as needed
+    ];
+
+    const flashcardsContainer = document.getElementById("flashcards-container");
+
+    flashcardsData.forEach(card => {
+        const flashcard = document.createElement("div");
+        flashcard.classList.add("flashcard");
+
+        flashcard.innerHTML = `
+            <div class="flashcard-inner">
+                <div class="flashcard-front">
+                    ${card.image ? `<img src="images/${card.image}" alt="${card.word}">` : ""}
+                    <p>${card.word}</p>
+                </div>
+                <div class="flashcard-back">
+                    <p>${card.translation}</p>
+                </div>
+            </div>
+        `;
+
+        // Add event listener for flip effect
+        flashcard.addEventListener("click", () => {
+            flashcard.classList.toggle("flipped");
+        });
+
+        flashcardsContainer.appendChild(flashcard);
+    });
+</script>
+
+</body>
+</html>

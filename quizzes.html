@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoruba Quizzes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        #quizzes-section {
+        padding: 20px;
+        text-align: center;
+        }
+
+        button{
+          background: #2ecc71;
+          margin-bottom: 10px;
+          padding: 15px 25px;
+          border: solid #f4f4f9;
+          border-radius: 5px;
+         color: white;
+         cursor: pointer;
+         font-weight: bold;
+        }
+
+        button:hover{
+            background-color: #27ae60
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Quizzes</h1>
+</header>
+
+ <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="flashcards.html">Flashcards</a></li>
+      <li><a href="quizzes.html">Quizzes</a></li>
+      <!--<li><a href="#categories">Categories</a></li>-->
+      <!-- Dropdown for Categories -->
+      <li><div class="dropdown">
+        <a href="#" class="dropbtn">Categories</a>
+        <div class="dropdown-content">
+            <a href="greetings.html">Greetings</a>
+            <a href="numbers.html">Numbers</a>
+            <a href="colors.html">Colors</a>
+            <a href="basic_phrases.html">Basic Phrases</a>
+            <!-- Add more categories as needed -->
+        </div>
+    </div></li>
+      <li><a href="dictionary.html" class="icon"><i class="fas fa-book"></i> Dictionary</a></li>
+    </ul>
+  </nav>
+
+<section id="quizzes-section">
+    <h2>Select a Quiz Category</h2>
+    <div id="category-container"></div>
+</section>
+
+<script src="script.js"></script>
+<script>
+    const categories = [
+        { name: "Greetings", quizzes: [
+            { type: "multiple-choice", question: "What is 'Hello' in Yoruba?", options: ["Ẹ kaaro", "O dabo", "Ẹ jọwọ", "Bawo ni"], answer: "Ẹ kaaro" },
+            { type: "fill-in-the-blank", question: "Translate 'Goodbye' to Yoruba.", answer: "O dabo" }
+        ]},
+        { name: "Numbers", quizzes: [
+            { type: "multiple-choice", question: "What is 'Two' in Yoruba?", options: ["Ẹyọkan", "Ẹjì", "Mẹta", "Mẹfa"], answer: "Ẹjì" },
+            { type: "matching", question: "Match the number to Yoruba", pairs: [
+                { english: "One", yoruba: "Ẹyọkan" },
+                { english: "Two", yoruba: "Ẹjì" }
+            ]}
+        ]},
+        { name: "Colors", quizzes: [
+            { type: "multiple-choice", question: "What is 'Red' in Yoruba?", options: ["Bulu", "Pupa", "Funfun", "Dudu"], answer: "Pupa" },
+            { type: "fill-in-the-blank", question: "What is 'Blue' in Yoruba?", answer: "Bulu" }
+        ]}
+    ];
+
+    const categoryContainer = document.getElementById("category-container");
+
+    categories.forEach((category, index) => {
+        const categoryDiv = document.createElement("div");
+        categoryDiv.innerHTML = `<button onclick="startQuiz(${index})">${category.name}</button>`;
+        categoryContainer.appendChild(categoryDiv);
+    });
+
+    function startQuiz(categoryIndex) {
+        localStorage.setItem("categoryIndex", categoryIndex);
+        window.location.href = "quiz.html"; // Redirect to the quiz page
+    }
+</script>
+
+</body>
+</html>

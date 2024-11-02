@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Yoruba</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Learn Yoruba</h1>
+    <p>Master Yoruba on the go with interactive flashcards, quizzes, and more!</p>
+    <!--<div class="score-display">Score: <span id="score">0</span></div>-->
+    <!-- Toggle dark mode -->
+    <!--<button onclick="toggleDarkMode()">Toggle Dark Mode</button> -->
+
+</header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="flashcards.html">Flashcards</a></li>
+      <li><a href="quizzes.html">Quizzes</a></li>
+     <!-- Dropdown for Categories -->
+     <li><div class="dropdown">
+      <a href="#" class="dropbtn">Categories</a>
+      <div class="dropdown-content">
+          <a href="greetings.html">Greetings</a>
+          <a href="numbers.html">Numbers</a>
+          <a href="colors.html">Colors</a>
+          <a href="basic_phrases.html">Basic Phrases</a>
+          <!-- Add more categories as needed -->
+      </div>
+  </div></li>
+      <li><a href="dictionary.html" class="icon"><i class="fas fa-book"></i> Dictionary</a></li>
+    </ul>
+  </nav>
+
+  <!-- Flashcards Section -->
+  <section id="flashcards">
+    <h2>Flashcards</h2>
+    <div class="flashcard-container">
+      <div class="flashcard" id="flashcard" onclick="flipFlashcard()">
+        <div class="side front">Hello</div>
+        <div class="side back">Ẹ kaaro</div>
+      </div>
+      <button onclick="nextFlashcard()">Next Card</button>
+    </div>
+  </section>
+
+  <!-- Quizzes Section -->
+  <section id="quizzes">
+    <h2>Test Knowledge</h2>
+    <div class="quiz-container">
+      <p id="question">What is the Yoruba word for "Thank you"?</p>
+      <div class="options">
+        <button onclick="checkAnswer('Ẹ se')">Ẹ se</button>
+        <button onclick="checkAnswer('Bawo ni')">Bawo ni</button>
+        <button onclick="checkAnswer('O dabo')">O dabo</button>
+        <button onclick="checkAnswer('Ẹ kaaro')">Ẹ kaaro</button>
+      </div>
+      <p id="quiz-feedback"></p>
+      <button onclick="nextQuestion()">Next Question</button>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section id="categories">
+    <h2>Categories</h2>
+    <div class="category-list">
+      <div class="category-item"><a href="greetings.html">Greetings</a></div>
+      <div class="category-item"><a href="numbers.html">Numbers</a></div>
+      <div class="category-item"><a href="colors.html">Colors</a></div>
+      <div class="category-item"><a href="basic_phrases.html">Basic Phrases</a></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Learn Yoruba © 2023</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

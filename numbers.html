@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numbers in Yoruba</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Numbers in Yoruba</h1>
+    <p>Learn common numbers in Yoruba.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="flashcards.html">Flashcards</a></li>
+      <li><a href="quizzes.html">Quizzes</a></li>
+      <!--<li><a href="#categories">Categories</a></li>-->
+      <!-- Dropdown for Categories -->
+      <li><div class="dropdown">
+        <a href="#" class="dropbtn">Categories</a>
+        <div class="dropdown-content">
+            <a href="greetings.html">Greetings</a>
+            <a href="numbers.html">Numbers</a>
+            <a href="colors.html">Colors</a>
+            <a href="basic_phrases.html">Basic Phrases</a>
+            <!-- Add more categories as needed -->
+        </div>
+    </div></li>
+      <li><a href="dictionary.html" class="icon"><i class="fas fa-book"></i> Dictionary</a></li>
+    </ul>
+  </nav>
+
+  <!-- Words Section -->
+  <section id="words">
+    <h2>Words and Translations</h2>
+    <div class="word-list" id="word-list">
+      <!-- Words will be populated here by JavaScript -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    // Load numbers data
+    displayWords('numbers');
+  </script>
+</body>
+</html>
